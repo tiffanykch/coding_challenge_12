@@ -1,0 +1,1 @@
+## Welcome to my JavaScript DOM Manipulation and Event Handling Coding Challenge!
