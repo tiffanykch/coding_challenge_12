@@ -29,8 +29,22 @@ function addMetricCard(id, title, value) {
     dashboardDivId.appendChild(metricCard);
 }
 
-addMetricCard('revenueCard', 'Revenue', 0);
+addMetricCard('revenueCard', 'Revenue', 5000);
 
 // Preparation for Task 2
-addMetricCard('profitCard', 'Profit', 0);
-addMetricCard('expensesCard', 'Expenses', 0);
+addMetricCard('profitCard', 'Profit', 2000);
+addMetricCard('expensesCard', 'Expenses', 3000);
+
+// TASK 2: UPDATING DASHBOARD METRIC - WORKING WITH NODELISTS AND ARRAYS
+
+// Select all elements with the class 'metric-card'
+const metricCardList = document.querySelectorAll('.metric-card');
+
+// Select NodeList into an array
+const arrayofMetricCard = Array.from(metricCardList);
+
+// Use array method to update each card's inner text
+arrayofMetricCard.forEach(card => {
+    card.innerText += `\n \n Updated`;
+    card.style.backgroundColor = "#b68ed3";
+})
