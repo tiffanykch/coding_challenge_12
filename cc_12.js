@@ -4,23 +4,33 @@
 const dashboardDivId = document.getElementById('dashboard');
 const dashboardDivQuery = document.querySelector('#dashboard');
 
-// Create new <div> to represent the metric card
-const revenueCard = document.createElement('div');
+// Created function to add metric cards (for reusability)
+function addMetricCard(id, title, value) {
+    
+    // Create new <div> to represent the metric card
+    let metricCard = document.createElement('div');
 
-// Assign class to metric card
-revenueCard.setAttribute('class', 'metric-card');
+    // Assign class to metric card
+    metricCard.setAttribute('class', 'metric-card');
 
-// Assign id to metric card
-revenueCard.setAttribute('id', 'revenueCard');
+    // Assign id to metric card
+    metricCard.setAttribute('id', id);
 
-// Populate card with title and placeholder value
-let cardTitle = document.createElement('h3')
-cardTitle.textContent = 'Revenue'
-revenueCard.appendChild(cardTitle)
+    // Populate card with title and placeholder value
+    let cardTitle = document.createElement('h3');
+    cardTitle.textContent = title;
+    metricCard.appendChild(cardTitle);
 
-let cardValue = document.createElement('p')
-cardValue.textContent = '$0'
-revenueCard.appendChild(cardValue)
+    let cardValue = document.createElement('p');
+    cardValue.textContent = '$' + value;
+    metricCard.appendChild(cardValue);
 
-// Append metric card to dashboard
-dashboardDivId.appendChild(revenueCard);
+    // Append metric card to dashboard
+    dashboardDivId.appendChild(metricCard);
+}
+
+addMetricCard('revenueCard', 'Revenue', 0);
+
+// Preparation for Task 2
+addMetricCard('profitCard', 'Profit', 0);
+addMetricCard('expensesCard', 'Expenses', 0);
