@@ -77,3 +77,45 @@ function addInventoryItem(product) {
 function removeInventoryItem(item) {
     inventoryList.removeChild(item);
 }
+
+// TASK 4: BUSINESS CUSTOMER SECTION - HANDLING EVENT BUBBLING
+
+// Selecting customer section container
+const customerDivId = document.getElementById('customerSection')
+
+// Attach event listener to customer section
+customerDivId.addEventListener('click', () => {
+    console.log('Customer section clicked!')
+})
+
+// Create function to add customer cards
+function addCustomerCard(name, ordersNum) {
+    
+    // Create new <div> to represent the customer card
+    let customerCard = document.createElement('div');
+
+    // Assign class to customer card
+    customerCard.setAttribute('class', 'customer-card');
+
+    // Populate card with customer name and order number
+    let cardTitle = document.createElement('h3');
+    cardTitle.textContent = name;
+    customerCard.appendChild(cardTitle);
+
+    let cardValue = document.createElement('p');
+    cardValue.textContent = "Orders: " + ordersNum;
+    customerCard.appendChild(cardValue);
+
+    // Append metric card to dashboard
+    customerDivId.appendChild(customerCard);
+
+    // Attach event listener to customer card
+    customerCard.addEventListener('click', (event) => {
+        console.log('Customer card clicked!');
+        event.stopPropagation();
+    } )
+}
+
+addCustomerCard('Celine Hang', 234);
+addCustomerCard('Chris Kuo', 2);
+addCustomerCard('Sofia Liu', 785);
